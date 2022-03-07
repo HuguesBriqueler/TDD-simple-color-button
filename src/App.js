@@ -1,19 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [colorButton, setColorButton] = useState("red");
   const [isBoxChecked, setIsBoxChecked] = useState(false);
   const nextColorValue = colorButton === "red" ? "blue" : "red";
 
+  // the purpose was to find a way to retrieve label's text content from the checkbox
+  // useEffect(() => {
+  //   const checkbox = document.getElementById("disable-button-checkbox");
+  //   console.log(checkbox.labels[0].textContent);
+  // }, [isBoxChecked]);
+
   const handleCheckbox = (event) => {
     setIsBoxChecked(event.target.checked);
-    // const buttonElement = document.querySelector("button");
-    // if (event.target.checked) {
-    //   buttonElement.setAttribute("disabled", "");
-    // } else {
-    //   buttonElement.removeAttribute("disabled");
-    // }
   };
+
   return (
     <div>
       <button
@@ -25,11 +26,14 @@ function App() {
       </button>
       <input
         type={"checkbox"}
-        id="enable-button-checkbox"
+        id="disable-button-checkbox"
         defaultChecked={isBoxChecked}
         aria-checked={isBoxChecked} // for accessibility (e.g. screen reader)
         onChange={handleCheckbox}
       />
+      <label htmlFor="disable-button-checkbox">
+        {isBoxChecked ? "Enable button" : "Disable button"}
+      </label>
     </div>
   );
 }
