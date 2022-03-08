@@ -12,11 +12,7 @@ function App() {
   return (
     <div>
       <button
-        style={
-          isBoxChecked
-            ? { backgroundColor: "gray" }
-            : { backgroundColor: colorButton }
-        }
+        style={{ backgroundColor: isBoxChecked ? "gray" : colorButton }}
         onClick={() => setColorButton(nextColorValue)}
         disabled={isBoxChecked}
       >

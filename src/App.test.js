@@ -64,6 +64,8 @@ describe("Button color turn to 'gray' when checkbox is checked", () => {
     fireEvent.click(checkbox);
     // Assert
     expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
+    fireEvent.click(checkbox);
+    expect(colorButton).toHaveStyle({ backgroundColor: "red" });
   });
   test("Button turn from blue to gray when disabled", () => {
     // Arrange
@@ -75,5 +77,7 @@ describe("Button color turn to 'gray' when checkbox is checked", () => {
     fireEvent.click(checkbox);
     // Assert
     expect(colorButton).toHaveStyle({ backgroundColor: "gray" });
+    fireEvent.click(checkbox);
+    expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
   });
 });
