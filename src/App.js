@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [colorButton, setColorButton] = useState("red");
   const [isBoxChecked, setIsBoxChecked] = useState(false);
   const nextColorValue = colorButton === "red" ? "blue" : "red";
-
-  // the purpose was to find a way to retrieve label's text content from the checkbox
-  // useEffect(() => {
-  //   const checkbox = document.getElementById("disable-button-checkbox");
-  //   console.log(checkbox.labels[0].textContent);
-  // }, [isBoxChecked]);
 
   const handleCheckbox = (event) => {
     setIsBoxChecked(event.target.checked);
@@ -18,7 +12,11 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: colorButton }}
+        style={
+          isBoxChecked
+            ? { backgroundColor: "gray" }
+            : { backgroundColor: colorButton }
+        }
         onClick={() => setColorButton(nextColorValue)}
         disabled={isBoxChecked}
       >
