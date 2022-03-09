@@ -22,7 +22,7 @@ describe("colorButton behaviour", () => {
     fireEvent.click(colorButton);
     // expect background change to blue and text change to 'Change to red'
     expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
-    expect(colorButton.textContent).toBe("Change to red");
+    expect(colorButton).toHaveTextContent("Change to red");
   });
 });
 
@@ -46,12 +46,12 @@ describe("checkbox behaviour", () => {
     // expect button to be disabled & checkbox name to be 'Enable button'
     const button = screen.getByRole("button");
     expect(button).toBeDisabled();
-    expect(checkbox.labels[0].textContent).toBe("Enable button");
+    expect(checkbox.labels[0]).toHaveTextContent("Enable button");
 
     // clicking again should restore conditions
     fireEvent.click(checkbox);
     expect(button).toBeEnabled();
-    expect(checkbox.labels[0].textContent).toBe("Disable button");
+    expect(checkbox.labels[0]).toHaveTextContent("Disable button");
   });
 });
 
