@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# simple-color-button
+
+The purpose of this very simple project is to set up tests with jest.js and react-testing-library.
+It implement a button that changes color when clicked, and can be disabled by a checkbox.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
